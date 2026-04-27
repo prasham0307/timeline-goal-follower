@@ -66,6 +66,8 @@ export class SmtpEmailAdapter implements EmailAdapter {
     // });
 
     console.log('SMTP email sending not yet implemented');
+    console.log('SMTP host:', this.config.host);
+    console.log('From:', this.config.from);
     console.log('Would send to:', message.to);
   }
 }

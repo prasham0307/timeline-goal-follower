@@ -29,7 +29,7 @@ const updateTemplateSchema = z.object({
 });
 
 // GET /api/templates - List all templates
-router.get('/', authMiddleware, async (req: AuthRequest, res: Response) => {
+router.get('/', authMiddleware, async (_req: AuthRequest, res: Response) => {
   try {
     const templates = await prisma.template.findMany({
       orderBy: {

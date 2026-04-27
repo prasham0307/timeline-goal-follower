@@ -7,6 +7,7 @@ import {
   DefaultTask,
   Task,
 } from './timeline';
+import { parseISO, startOfDay } from 'date-fns';
 
 describe('Timeline Service', () => {
   describe('generateTimeline', () => {
@@ -18,8 +19,8 @@ describe('Timeline Service', () => {
       const timeline = generateTimeline('2025-06-01T00:00:00Z', '2025-06-05T00:00:00Z', defaultTasks);
 
       expect(timeline).toHaveLength(5);
-      expect(timeline[0].date).toBe(new Date('2025-06-01T00:00:00Z').toISOString());
-      expect(timeline[4].date).toBe(new Date('2025-06-05T00:00:00Z').toISOString());
+      expect(timeline[0].date).toBe(startOfDay(parseISO('2025-06-01T00:00:00Z')).toISOString());
+      expect(timeline[4].date).toBe(startOfDay(parseISO('2025-06-05T00:00:00Z')).toISOString());
     });
 
     it('should attach default tasks to each day', () => {

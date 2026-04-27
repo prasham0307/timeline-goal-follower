@@ -62,12 +62,6 @@ router.get('/today', authMiddleware, async (req: AuthRequest, res: Response) => 
     const todayStr = today.toISOString();
     const endOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59, 999);
 
-    // Get all goals for this user
-    const allGoals = await prisma.goal.findMany({
-      where: { userId: req.userId },
-      select: { id: true, title: true, startDate: true, deadline: true },
-    });
-
     const goals = await prisma.goal.findMany({
       where: { 
         userId: req.userId,

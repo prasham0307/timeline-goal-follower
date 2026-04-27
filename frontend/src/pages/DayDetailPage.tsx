@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { format, parseISO } from 'date-fns';
 import AppShell from '../components/AppShell';
 import ProgressBar from '../components/ProgressBar';
-import { goalsApi, tasksApi, Task } from '../lib/api';
+import { goalsApi, tasksApi } from '../lib/api';
 
 export default function DayDetailPage() {
   const { goalId, date } = useParams<{ goalId: string; date: string }>();
